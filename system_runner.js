@@ -1,3 +1,5 @@
+//DO NOT CHANGE// except canvaswidth and height
+
 const canvasWidth = 540;
 const canvasHeight = 960;
 

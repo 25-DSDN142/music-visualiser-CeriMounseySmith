@@ -1,3 +1,4 @@
+//START HERE - start working here
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
@@ -6,14 +7,14 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   rectMode(CENTER)
   textSize(24);
   
-   let bar_spacing = height / 10;
-   let bar_height = width / 12;
-   let bar_pos_x = width / 2;
+   let bar_spacing = height / 10; // space between each height
+   let bar_height = width / 12;   //width of bar
+   let bar_pos_x = width / 2;     // bar position
  
 // changes 
    // vocal bar is red
-   fill(200, 0, 0);
-   rect(bar_pos_x, height / 2 + 1 * bar_spacing, 4 * vocal, bar_height);
+   fill(200, 0, 0);//red
+   rect(bar_pos_x, height / 2 + 1 * bar_spacing, 4 * vocal, bar_height); //* is xtimes
    fill(0);
    text("vocals", bar_pos_x, height / 2 + 1 * bar_spacing + 8);
  
@@ -37,7 +38,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    fill(255, 255, 0);
  
    // display "words"
-   textAlign(CENTER);
-   textSize(vocal);
-   text(words, width/2, height/3);
+   textAlign(CENTER);//aligned in center
+   textSize(vocal);  // based on vocal
+   text(words, width/2, height/3); //words variable makes text appear
 }
