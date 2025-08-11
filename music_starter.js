@@ -1,48 +1,52 @@
 //START HERE - start working here
- var Xmove =1;
- var Ymove = 10;
- var col = 0;
+ //var Xmove =1;
+ //var Ymove = 10;
+ //var col = 0;
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
-  background(col);
 
-col=map(mouseX, 0,600,0,255);
+colorMode(HSB,100,);
+background(255);
+rectMode(CENTER);
+strokeWeight(9);
+stroke(drum,80,80);
+//strokeFill(255);
 
-  fill(250,118,222);
-ellipse( mouseX,200,64,64);
+var drumMap =map(drum,0,100,30,90);
+var lengthOfLine = 300;
+var LineStart = 100;
+var LineEnd= LineStart+ lengthOfLine;
 
+line(LineStart,300, LineEnd, 300);
 
+return;
 
-
-
-  //   textFont('Verdana'); // please use CSS safe fonts
-//   rectMode(CENTER)
-//   textSize(24);
-
-ellipse(10+Xmove,100,45,45);
-
-Xmove = Xmove +10;
-
-if(Xmove>550){
-Xmove=0;
- }
-
-ellipse(50,10+Ymove,10,30)
-Ymove = Ymove +20
-if(Ymove>1000){
-Ymove=0;
 }
 
 
 
+// ////////////maps
+// col=map(mouseX, 0,600,0,255);
+
+//   fill(250,118,222);
+// ellipse( mouseX,200,64,64);
 
 
+// ellipse(10+Xmove,100,45,45);
 
+// Xmove = Xmove +10;
 
+// if(Xmove>550){
+// Xmove=0;
+//  }
 
+// ellipse(50,10+Ymove,10,30)
+// Ymove = Ymove +20
+// if(Ymove>1000){
+// Ymove=0;
+// }
 
-
-
+//stuff that was already here
 
    // let bar_spacing = height / 10; // space between each height
    // let bar_height = width / 12;   //width of bar
@@ -79,7 +83,7 @@ Ymove=0;
    // textAlign(CENTER); // aligned in center
    // textSize(vocal);  // based on vocal
    // text(words, width/2, height/3); // words variable makes text appear
-}
+//}
 
 
 
