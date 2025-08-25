@@ -1,6 +1,6 @@
 //START HERE - start working here
 
-//canvas size is auto set to a resolution of 540x960
+//canvas size is set to 1500 x 1000
 
 //  var Xmove =1;
 //  var Ymove = 10;
@@ -14,29 +14,125 @@ let topLeft=0;
 let topRight=540;
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
-//background(20)
+background(255,181,100);//yellow
+fill(248,93,0);//orange
+strokeWeight(10)
+stroke(255,181,100)
+rect(0,0,100,1000);//left rect
+rect(1400,0,1000,1500)//right rect
+
+beginShape();//top frame piece
+vertex(0,0);
+vertex(100,100);
+vertex(1400,100);
+vertex(1500,0);
+endShape(CLOSE);
+
+beginShape();// bottom frame piece
+vertex(0,1000);
+vertex(100,900);
+vertex(1400,900);
+vertex(1500,1000);
+endShape(CLOSE);
+
+fill(145,132,80);//top green triangle
+beginShape();
+vertex(650,0);
+vertex(750,100);
+vertex(850,0);
+endShape(CLOSE);
+
+beginShape();//bottom green triangle
+vertex(650,1000);
+vertex(750,900);
+vertex(850,1000);
+endShape(CLOSE);
+
+beginShape();//left green triangle
+vertex(0,400);
+vertex(100,500);
+vertex(0,600);
+endShape(CLOSE);
+
+beginShape();//right green triangle
+vertex(1400,500);
+vertex(1500,400);
+vertex(1500,600);
+endShape(CLOSE);
+
+fill(240,134,134);//top left pink
+beginShape();
+vertex(540,0);
+vertex(590,60);
+vertex(640,0);
+endShape(CLOSE);
+fill(240,134,134);//top right pink
+beginShape();
+vertex(860,0);
+vertex(910,60);
+vertex(960,0);
+endShape(CLOSE);
+fill(240,134,134);//bottom left pink
+beginShape();
+vertex(540,1000);
+vertex(590,940);
+vertex(640,1000);
+endShape(CLOSE);
+fill(240,134,134);//bottom right pink
+beginShape();
+vertex(860,1000);
+vertex(910,940);
+vertex(960,1000);
+endShape(CLOSE);
+
+fill(255,209,157);//top left light yellow
+strokeWeight(0);
+beginShape();
+vertex(220,0);
+vertex(270,50);
+vertex(320,0);
+endShape(CLOSE);
+//bottom left light yellow
+beginShape();
+vertex(220,1000);
+vertex(270,950);
+vertex(320,1000);
+endShape(CLOSE);
+//top right light yellow
+beginShape();
+vertex(1280,0);
+vertex(1230,50);
+vertex(1180,0);
+endShape(CLOSE);
+//bottom right light yellow
+beginShape();
+vertex(1280,1000);
+vertex(1230,950);
+vertex(1180,1000);
+endShape(CLOSE);
 
 
-////////////////loops PBA
-colorMode(HSB,100);
-background(255);
-rectMode(CENTER);
-strokeWeight(9);
-stroke(bass,80,80);
-//strokeFill(255);
-let drumMap=map(drum,0,100,30,90);
-let lengthOfLine=300;
-let lineStart=100;
-let lineEnd = lineStart+lengthOfLine;
 
-if(drumMap>50){
-ellipse(lineStart,lineEnd,drum)
-ellipse(lineStart+50,lineEnd,drum)
-ellipse(lineStart+100,lineEnd,drum)
-ellipse(lineStart+150,lineEnd,drum)
-ellipse(lineStart+200,lineEnd,drum)
+// ////////////////loops PBA
+// colorMode(HSB,100);
+// background(255);
+// rectMode(CENTER);
+// strokeWeight(9);
+// stroke(bass,80,80);
+// //strokeFill(255);
+// let drumMap=map(drum,0,100,30,90);
+// let lengthOfLine=300;
+// let lineStart=100;
+// let lineEnd = lineStart+lengthOfLine;
 
-}
+// if(drumMap>50){
+// ellipse(lineStart,lineEnd,drum)
+// ellipse(lineStart+50,lineEnd,drum)
+// ellipse(lineStart+100,lineEnd,drum)
+// ellipse(lineStart+150,lineEnd,drum)
+// ellipse(lineStart+200,lineEnd,drum)
+
+// }
 
 
 // for(let i=1; i<=drumMap; i=i+1 );{ 
