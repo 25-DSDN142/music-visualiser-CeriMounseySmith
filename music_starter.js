@@ -2,6 +2,17 @@
 
 //canvas size is set to 1500 x 1000
 
+let middleX = 750
+let middleY = 500
+let uprightX = 1200
+let uprightY = 300
+let upleftX = 300
+let upleftY = 300
+let btmleftX = 300
+let btmleftY = 700
+let btmrightX = 1200
+let btmrightY = 700
+
 //  var Xmove =1;
 //  var Ymove = 10;
 //  var col = 0;'
@@ -111,8 +122,58 @@ vertex(1230,950);
 vertex(1180,1000);
 endShape(CLOSE);
 
+///flower shapes practice
+ellipse(middleX-200,middleY,300,100);//center flower
+ellipse(middleX+200,middleY,300,100);
+ellipse(middleX,middleY-200,100,300);
+ellipse(middleX,middleY+200,100,300);
+
+rotate(45);
+ellipse(middleX+125,middleY-400,50,150);
+ellipse(900,-450,50,150);
+ellipse(640,-175,150,50)
+ellipse(1150,-200,150,50)
+
+rotate(315);//little top right flower
+fill(240,134,134)//pink
+ellipse(uprightX,uprightY,20,100)
+ellipse(uprightX,uprightY,100,20)
+fill(255,209,157)//light yellow
+ellipse(uprightX,uprightY,20,20)
 
 
+ellipse(upleftX,uprightY,20,20)//little top left flower
+ellipse( upleftX,uprightY-80,20,80)
+ellipse( upleftX-80,uprightY,80,20)
+ellipse( upleftX,uprightY+80,20,80)
+ellipse( upleftX+80,uprightY,80,20)
+
+ellipse( upleftX-60,uprightY-60,15,15)
+ellipse( upleftX+60,uprightY+60,15,15)
+ellipse( upleftX-60,uprightY+60,15,15)
+ellipse( upleftX+60,uprightY-60,15,15)
+
+//little btm left flower
+fill(240,134,134)//pink
+ellipse(btmleftX-35,btmleftY,80,40)
+ellipse(btmleftX+35,btmleftY,80,40)
+ellipse(btmleftX,btmleftY-35,40,80)
+ellipse(btmleftX,btmleftY+35,40,80)
+fill(255,209,157)//light yellow
+ellipse( btmleftX,btmleftY, 20,20)
+ellipse(btmleftX-40, btmleftY-40,15,15)
+ellipse(btmleftX+40, btmleftY+40,15,15)
+ellipse(btmleftX-40, btmleftY+40,15,15)
+ellipse(btmleftX+40, btmleftY-40,15,15)
+
+//btm right flower
+ellipse(btmrightX,btmleftY,20,20)
+ellipse(btmrightX-30,btmleftY,20,20)
+ellipse(btmrightX,btmleftY-30,20,20)
+ellipse(btmrightX+30,btmleftY,20,20)
+ellipse(btmrightX,btmleftY+30,20,20)
+
+//rect(202,200,202,202);
 // ////////////////loops PBA
 // colorMode(HSB,100);
 // background(255);
