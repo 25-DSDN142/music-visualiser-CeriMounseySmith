@@ -1,8 +1,7 @@
-//START HERE - start working here
-
 //canvas size is set to 1500 x 1000
 
-let middleX = 750
+//variables
+let middleX = 750//location variables
 let middleY = 500
 let uprightX = 1200
 let uprightY = 300
@@ -12,29 +11,19 @@ let btmleftX = 300
 let btmleftY = 700
 let btmrightX = 1200
 let btmrightY = 700
-
-//  var Xmove =1;
-//  var Ymove = 10;
-//  var col = 0;'
-let sunY = 350;
-let sunSize= 200;
-let sunX = 350;
-let centerX=750;
-let centerY=500;
-let petalWidth = 300
-let petalHeight = 100
-let tinyCircle = 20
-let medCircle = 40
-
 let topLeft=0;
 let topRight=540;
 
+let sunSize= 200;//sunSize is the middle orange circle
+let sunX = 350;
+let sunY = 350;
 
-// let r= map(vocal,0,100,0,255);
-// let g= map(vocal,0,100,0,255);
-// let b= map(vocal,0,100,0,255);
-// let col = r+g+b 
-
+let centerX=750;//center of canvas
+let centerY=500;//center of canvas
+let petalWidth = 300
+let petalHeight = 100
+let tinyCircle = 20//tiny green circle close to edge of petals
+let medCircle = 40//middle circle on petal
 
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
@@ -43,7 +32,8 @@ background(255,181,100);//yellow
 fill(248,93,0);//orange
 strokeWeight(10)
 stroke(255,181,100)
-//////////////////////boarder (frame)
+
+//border (frame)
 rect(0,0,100,1000);//left frame piece
 rect(1400,0,1000,1500)//right frame piece
 beginShape();//top frame piece
@@ -58,7 +48,8 @@ vertex(100,900);
 vertex(1400,900);
 vertex(1500,1000);
 endShape(CLOSE);
-/////////////////////frame decorations
+
+//frame decorations//triangles
 pointTop = map(bass,0,100,40,150);
 pointBtm = map(bass,0,100,960,850);
 pointLeft= map(bass,0,100,40,200)
@@ -130,57 +121,74 @@ vertex(1280,1000);
 vertex(1230,950);
 vertex(1180,1000);
 endShape(CLOSE);
+//frame decorations//added line details
 
 
-///////////////inside flower motif decorations
+
+
+
+
+
+//center flower motif & innner decorations
 wider = map(drum,0,100,0,80);
-taller = map(drum,0,100,0,80);
+circle = map(vocal,0,100,10,100);
 
-
-
-ellipse(middleX-200,middleY,petalWidth+wider,petalHeight);//center flower
+ellipse(middleX-200,middleY,petalWidth+wider,petalHeight);//center flower petals
 ellipse(middleX+200,middleY,petalWidth+wider,petalHeight);
 ellipse(middleX,middleY-200,petalHeight,petalWidth+wider);
 ellipse(middleX,middleY+200,petalHeight,petalWidth+wider);
-// 50 being smallest itll be and 400 max itll be
+
 sunSize= map(drum,0,100,10,100);
-// //change back to just vocal/drum/bass/other to change back to what you had before
-// // e.g. sunSize=vocal
 beachSize=map(bass,0,100,800,1000);
 petalSize=map(drum,0,100,10,200);
 fill(248,93,0); //orange
 ellipse(centerX,centerY,sunSize);
 if(sunSize>40){
-fill(240,134,134)//lightpink
+fill(255,209,157)//yellow
 rotate(45);
-ellipse(middleX+125,middleY-400,50,150);
+ellipse(middleX+125,middleY-400,50,150);//smaller diagonal flower petals
 ellipse(900,-450,50,150);
 ellipse(640,-175,150,50);
 ellipse(1150,-200,150,50);
 rotate(315);
  }
+ellipse(centerX+315,centerY+275,circle);
+
+
 if(petalSize>60){
-    ellipse(centerX+100,centerY,tinyCircle);
+    ellipse(centerX+100,centerY,tinyCircle);//central most circles in petals
     ellipse(centerX-100,centerY,tinyCircle);
     ellipse(centerX,centerY-100,tinyCircle);
     ellipse(centerX,centerY+100,tinyCircle);
 }
+
 if(sunSize>30){
-ellipse(centerX+200,centerY,sunSize);
+ellipse(centerX+200,centerY,sunSize);//middle circles in petals
 ellipse(centerX-200,centerY,sunSize);
 ellipse(centerX,centerY+200,sunSize);
 ellipse(centerX,centerY-200,sunSize);
 }
-if(petalSize>60){
+if(bass>48){
     fill(145,132,80)
-    ellipse(centerX+300,centerY,tinyCircle);
+    ellipse(centerX+300,centerY,tinyCircle);//outer most circles in petals
     ellipse(centerX-300,centerY,tinyCircle);
     ellipse(centerX,centerY-300,tinyCircle);
     ellipse(centerX,centerY+300,tinyCircle);
 }
 
 
-
+//moving it around////////////////////////////////////////////if have time
+// strokeWeight(8)
+// ellipse(sunX,sunY,sunSize-20);
+// ellipse(sunX,sunY,sunSize-60);
+// sunY = sunY+1
+// sunX = sunX+1
+// if(sunX>700){
+//  sunX=0
+// }
+// if(sunY>800){
+// sunY=200    
+// }
 
 rotate(315);//little top right flower
 // fill(240,134,134)//pink
@@ -220,49 +228,6 @@ rotate(315);//little top right flower
 // ellipse(btmrightX,btmleftY-30,20,20)
 // ellipse(btmrightX+30,btmleftY,20,20)
 // ellipse(btmrightX,btmleftY+30,20,20)
-
-
-
-
-
-//rect(202,200,202,202);
-// ////////////////loops PBA
-// colorMode(HSB,100);
-// background(255);
-// rectMode(CENTER);
-// strokeWeight(9);
-// stroke(bass,80,80);
-// // //strokeFill(255);
-// let drumMap=map(drum,0,100,30,90);
-// let lengthOfLine=300;
-// let lineStart=100;
-// let lineEnd = lineStart+lengthOfLine;
-
-// if(drumMap>50){
-// ellipse(lineStart,lineEnd,drum)
-// ellipse(lineStart+50,lineEnd,drum)
-// ellipse(lineStart+100,lineEnd,drum)
-// ellipse(lineStart+150,lineEnd,drum)
-// ellipse(lineStart+200,lineEnd,drum)
-
-// }
-
-
-// for(let i=1; i<=drumMap; i=i+1 );{ 
-//    let lineStep=1*20;
-// line(lineStart,lineStep,lineEnd,lineStep);
-
-//   }
-
-// // if(drumMap>50){
-    
-// // }
-
-
-
-
-
-
 
 
 //////////////////////////////////put in later
