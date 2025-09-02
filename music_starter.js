@@ -19,159 +19,211 @@ let btmrightY = 700
 let sunY = 350;
 let sunSize= 200;
 let sunX = 350;
-let centerX=270;
-let centerY=480;
+let centerX=750;
+let centerY=500;
+let petalWidth = 300
+let petalHeight = 100
+let tinyCircle = 20
+let medCircle = 40
+
 let topLeft=0;
 let topRight=540;
+
+
+// let r= map(vocal,0,100,0,255);
+// let g= map(vocal,0,100,0,255);
+// let b= map(vocal,0,100,0,255);
+// let col = r+g+b 
+
+
+
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
 background(255,181,100);//yellow
 fill(248,93,0);//orange
 strokeWeight(10)
 stroke(255,181,100)
-rect(0,0,100,1000);//left rect
-rect(1400,0,1000,1500)//right rect
-
+//////////////////////boarder (frame)
+rect(0,0,100,1000);//left frame piece
+rect(1400,0,1000,1500)//right frame piece
 beginShape();//top frame piece
 vertex(0,0);
 vertex(100,100);
 vertex(1400,100);
 vertex(1500,0);
 endShape(CLOSE);
-
 beginShape();// bottom frame piece
 vertex(0,1000);
 vertex(100,900);
 vertex(1400,900);
 vertex(1500,1000);
 endShape(CLOSE);
-
+/////////////////////frame decorations
+pointTop = map(bass,0,100,40,150);
+pointBtm = map(bass,0,100,960,850);
+pointLeft= map(bass,0,100,40,200)
+pointRight=map(bass,0,100,1460,1300)
 fill(145,132,80);//top green triangle
 beginShape();
 vertex(650,0);
-vertex(750,100);
+vertex(750,pointTop);
 vertex(850,0);
 endShape(CLOSE);
-
 beginShape();//bottom green triangle
 vertex(650,1000);
-vertex(750,900);
+vertex(750,pointBtm);
 vertex(850,1000);
 endShape(CLOSE);
-
 beginShape();//left green triangle
 vertex(0,400);
-vertex(100,500);
+vertex(pointLeft,500);
 vertex(0,600);
 endShape(CLOSE);
-
 beginShape();//right green triangle
-vertex(1400,500);
+vertex(pointRight,500);
 vertex(1500,400);
 vertex(1500,600);
 endShape(CLOSE);
-
-fill(240,134,134);//top left pink
+fill(240,134,134);//top left pink triangle
 beginShape();
 vertex(540,0);
 vertex(590,60);
 vertex(640,0);
 endShape(CLOSE);
-fill(240,134,134);//top right pink
+fill(240,134,134);//top right pink triangle
 beginShape();
 vertex(860,0);
 vertex(910,60);
 vertex(960,0);
 endShape(CLOSE);
-fill(240,134,134);//bottom left pink
+fill(240,134,134);//bottom left pink triangle
 beginShape();
 vertex(540,1000);
 vertex(590,940);
 vertex(640,1000);
 endShape(CLOSE);
-fill(240,134,134);//bottom right pink
+fill(240,134,134);//bottom right pink triangle
 beginShape();
 vertex(860,1000);
 vertex(910,940);
 vertex(960,1000);
 endShape(CLOSE);
-
-fill(255,209,157);//top left light yellow
+fill(255,209,157);//top left light yellow triangle
 strokeWeight(0);
 beginShape();
 vertex(220,0);
 vertex(270,50);
 vertex(320,0);
 endShape(CLOSE);
-//bottom left light yellow
-beginShape();
+beginShape();//bottom left light yellow triangle
 vertex(220,1000);
 vertex(270,950);
 vertex(320,1000);
 endShape(CLOSE);
-//top right light yellow
-beginShape();
+beginShape();//top right light yellow triangle
 vertex(1280,0);
 vertex(1230,50);
 vertex(1180,0);
 endShape(CLOSE);
-//bottom right light yellow
-beginShape();
+beginShape();//bottom right light yellow triangle
 vertex(1280,1000);
 vertex(1230,950);
 vertex(1180,1000);
 endShape(CLOSE);
 
-///flower shapes practice
-ellipse(middleX-200,middleY,300,100);//center flower
-ellipse(middleX+200,middleY,300,100);
-ellipse(middleX,middleY-200,100,300);
-ellipse(middleX,middleY+200,100,300);
 
+///////////////inside flower motif decorations
+wider = map(drum,0,100,0,80);
+taller = map(drum,0,100,0,80);
+
+
+
+ellipse(middleX-200,middleY,petalWidth+wider,petalHeight);//center flower
+ellipse(middleX+200,middleY,petalWidth+wider,petalHeight);
+ellipse(middleX,middleY-200,petalHeight,petalWidth+wider);
+ellipse(middleX,middleY+200,petalHeight,petalWidth+wider);
+// 50 being smallest itll be and 400 max itll be
+sunSize= map(drum,0,100,10,100);
+// //change back to just vocal/drum/bass/other to change back to what you had before
+// // e.g. sunSize=vocal
+beachSize=map(bass,0,100,800,1000);
+petalSize=map(drum,0,100,10,200);
+fill(248,93,0); //orange
+ellipse(centerX,centerY,sunSize);
+if(sunSize>40){
+fill(240,134,134)//lightpink
 rotate(45);
 ellipse(middleX+125,middleY-400,50,150);
 ellipse(900,-450,50,150);
-ellipse(640,-175,150,50)
-ellipse(1150,-200,150,50)
+ellipse(640,-175,150,50);
+ellipse(1150,-200,150,50);
+rotate(315);
+ }
+if(petalSize>60){
+    ellipse(centerX+100,centerY,tinyCircle);
+    ellipse(centerX-100,centerY,tinyCircle);
+    ellipse(centerX,centerY-100,tinyCircle);
+    ellipse(centerX,centerY+100,tinyCircle);
+}
+if(sunSize>30){
+ellipse(centerX+200,centerY,sunSize);
+ellipse(centerX-200,centerY,sunSize);
+ellipse(centerX,centerY+200,sunSize);
+ellipse(centerX,centerY-200,sunSize);
+}
+if(petalSize>60){
+    fill(145,132,80)
+    ellipse(centerX+300,centerY,tinyCircle);
+    ellipse(centerX-300,centerY,tinyCircle);
+    ellipse(centerX,centerY-300,tinyCircle);
+    ellipse(centerX,centerY+300,tinyCircle);
+}
+
+
+
 
 rotate(315);//little top right flower
-fill(240,134,134)//pink
-ellipse(uprightX,uprightY,20,100)
-ellipse(uprightX,uprightY,100,20)
-fill(255,209,157)//light yellow
-ellipse(uprightX,uprightY,20,20)
+// fill(240,134,134)//pink
+// ellipse(uprightX,uprightY,20,100)
+// ellipse(uprightX,uprightY,100,20)
+// fill(255,209,157)//light yellow
+// ellipse(uprightX,uprightY,20,20)
 
 
-ellipse(upleftX,uprightY,20,20)//little top left flower
-ellipse( upleftX,uprightY-80,20,80)
-ellipse( upleftX-80,uprightY,80,20)
-ellipse( upleftX,uprightY+80,20,80)
-ellipse( upleftX+80,uprightY,80,20)
+// ellipse(upleftX,uprightY,20,20)//little top left flower
+// ellipse( upleftX,uprightY-80,20,80)
+// ellipse( upleftX-80,uprightY,80,20)
+// ellipse( upleftX,uprightY+80,20,80)
+// ellipse( upleftX+80,uprightY,80,20)
 
-ellipse( upleftX-60,uprightY-60,15,15)
-ellipse( upleftX+60,uprightY+60,15,15)
-ellipse( upleftX-60,uprightY+60,15,15)
-ellipse( upleftX+60,uprightY-60,15,15)
+// ellipse( upleftX-60,uprightY-60,15,15)
+// ellipse( upleftX+60,uprightY+60,15,15)
+// ellipse( upleftX-60,uprightY+60,15,15)
+// ellipse( upleftX+60,uprightY-60,15,15)
 
 //little btm left flower
-fill(240,134,134)//pink
-ellipse(btmleftX-35,btmleftY,80,40)
-ellipse(btmleftX+35,btmleftY,80,40)
-ellipse(btmleftX,btmleftY-35,40,80)
-ellipse(btmleftX,btmleftY+35,40,80)
-fill(255,209,157)//light yellow
-ellipse( btmleftX,btmleftY, 20,20)
-ellipse(btmleftX-40, btmleftY-40,15,15)
-ellipse(btmleftX+40, btmleftY+40,15,15)
-ellipse(btmleftX-40, btmleftY+40,15,15)
-ellipse(btmleftX+40, btmleftY-40,15,15)
+// fill(240,134,134)//pink
+// ellipse(btmleftX-35,btmleftY,80,40)
+// ellipse(btmleftX+35,btmleftY,80,40)
+// ellipse(btmleftX,btmleftY-35,40,80)
+// ellipse(btmleftX,btmleftY+35,40,80)
+// fill(255,209,157)//light yellow
+// ellipse( btmleftX,btmleftY, 20,20)
+// ellipse(btmleftX-40, btmleftY-40,15,15)
+// ellipse(btmleftX+40, btmleftY+40,15,15)
+// ellipse(btmleftX-40, btmleftY+40,15,15)
+// ellipse(btmleftX+40, btmleftY-40,15,15)
 
-//btm right flower
-ellipse(btmrightX,btmleftY,20,20)
-ellipse(btmrightX-30,btmleftY,20,20)
-ellipse(btmrightX,btmleftY-30,20,20)
-ellipse(btmrightX+30,btmleftY,20,20)
-ellipse(btmrightX,btmleftY+30,20,20)
+// //btm right flower
+// ellipse(btmrightX,btmleftY,20,20)
+// ellipse(btmrightX-30,btmleftY,20,20)
+// ellipse(btmrightX,btmleftY-30,20,20)
+// ellipse(btmrightX+30,btmleftY,20,20)
+// ellipse(btmrightX,btmleftY+30,20,20)
+
+
+
+
 
 //rect(202,200,202,202);
 // ////////////////loops PBA
@@ -180,7 +232,7 @@ ellipse(btmrightX,btmleftY+30,20,20)
 // rectMode(CENTER);
 // strokeWeight(9);
 // stroke(bass,80,80);
-// //strokeFill(255);
+// // //strokeFill(255);
 // let drumMap=map(drum,0,100,30,90);
 // let lengthOfLine=300;
 // let lineStart=100;
@@ -197,17 +249,14 @@ ellipse(btmrightX,btmleftY+30,20,20)
 
 
 // for(let i=1; i<=drumMap; i=i+1 );{ 
-//     let lineStep=1*20;
+//    let lineStep=1*20;
 // line(lineStart,lineStep,lineEnd,lineStep);
 
-//  }
+//   }
 
-
-
-//can be useful to use but dont use rn//vidloops min 3 :30
-// if(drumMap>50){
+// // if(drumMap>50){
     
-// }
+// // }
 
 
 
@@ -215,34 +264,10 @@ ellipse(btmrightX,btmleftY+30,20,20)
 
 
 
-// ///////////////////////////////////
 
-// //                      50 being smallest itll be and 400 max itll be
-// sunSize= map(drum,0,100,50,400);
-// //change back to just vocal/drum/bass/other to change back to what you had before
-// // e.g. sunSize=vocal
-// beachSize=map(bass,0,100,800,1000);
-// petalSize=map(drum,0,100,10,200);
-// fill(255,255,0); //yellow
-// ellipse(sunX,sunY,sunSize);
-// if(sunSize>200){
-//     fill(255,192,203)//lightpink
-//     ellipse(sunX,sunY,sunSize);
-//     ellipse(sunX-100,sunY+100,petalSize)
-//     ellipse(sunX+100,sunY+100,petalSize)
-//     ellipse(sunX-100,sunY-100,petalSize)
-//     ellipse(sunX+100,sunY-100,petalSize)
-// }
-// if(petalSize>50){
-//     fill(255,255,0);
-//     ellipse(sunX-150,sunY+150,petalSize-100)
-// }
-// fill(255,255,0);
-// ellipse(270,1200,beachSize);
+//////////////////////////////////put in later
 
-
-
-//moving it around
+// //moving it around
 // strokeWeight(8)
 // ellipse(sunX,sunY,sunSize-20);
 // ellipse(sunX,sunY,sunSize-60);
@@ -255,43 +280,4 @@ ellipse(btmrightX,btmleftY+30,20,20)
 // sunY=200    
 // }
 
-
-
-
-///////////////////////stuff that was already here
-// let bar_spacing = height / 10; // space between each height
-// let bar_height = width / 12;   //width of bar
-// let bar_pos_x = width / 2;     // bar position
- 
-   
-// // // changes 
-// //    // // vocal bar is red
-// fill(172, 120, 186);// lavendar
-// rect(bar_pos_x, height / 2 + 1 * bar_spacing, 4 * vocal, bar_height); //* is xtimes
-//  fill(0);
-// text("vocals", bar_pos_x, height / 2 + 1 * bar_spacing + 8);
- 
-// //    // // drum bar is green
-// fill(235, 195, 106);//light yellow
-// rect(bar_pos_x, height / 2 + 2 * bar_spacing, 4 * drum, bar_height);
-//  fill(0);
-//  text("drums", bar_pos_x, height / 2 + 2 * bar_spacing + 8);
- 
-// //    // // bass bar is blue
-//  fill(250,158,28);//orange
-//  rect(bar_pos_x, height / 2 + 3 * bar_spacing, 4 * bass, bar_height);
-//  fill(0);
-//  text("bass", bar_pos_x, height / 2 + 3 * bar_spacing + 8);
- 
-// //    // // other bar is white
-//  fill(250,128,114);//pink
-//  rect(bar_pos_x, height / 2 + 4 * bar_spacing, 4 * other, bar_height);
-//  fill(0);
-//  text("other", bar_pos_x, height / 2 + 4 * bar_spacing + 8);
-//  fill(255, 255, 0);
- 
-//    // // display "words"
-// textAlign(CENTER); // aligned in center
-// textSize(vocal);  // based on vocal
-// text(words, width/2, height/3); // words variable makes text appear
 }
