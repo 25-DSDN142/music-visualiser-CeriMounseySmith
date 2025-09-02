@@ -2,22 +2,10 @@
 
 //variables
 let middleX = 750//location variables
-let middleY = 500
-let uprightX = 1200
-let uprightY = 300
-let upleftX = 300
-let upleftY = 300
-let btmleftX = 300
-let btmleftY = 700
-let btmrightX = 1200
-let btmrightY = 700
-let topLeft=0;
-let topRight=540;
-
+let middleY = 500//location variables
 let sunSize= 200;//sunSize is the middle orange circle
 let sunX = 350;
 let sunY = 350;
-
 let centerX=750;//center of canvas
 let centerY=500;//center of canvas
 let petalWidth = 300
@@ -28,7 +16,7 @@ let medCircle = 40//middle circle on petal
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
-background(255,181,100);//yellow
+background(255,181,100);//dark yellow
 fill(248,93,0);//orange
 strokeWeight(10)
 stroke(255,181,100)
@@ -81,20 +69,17 @@ vertex(540,0);
 vertex(590,60);
 vertex(640,0);
 endShape(CLOSE);
-fill(240,134,134);//top right pink triangle
-beginShape();
+beginShape();//top right pink triangle
 vertex(860,0);
 vertex(910,60);
 vertex(960,0);
 endShape(CLOSE);
-fill(240,134,134);//bottom left pink triangle
-beginShape();
+beginShape();//bottom left pink triangle
 vertex(540,1000);
 vertex(590,940);
 vertex(640,1000);
 endShape(CLOSE);
-fill(240,134,134);//bottom right pink triangle
-beginShape();
+beginShape();//bottom right pink triangle
 vertex(860,1000);
 vertex(910,940);
 vertex(960,1000);
@@ -121,28 +106,41 @@ vertex(1280,1000);
 vertex(1230,950);
 vertex(1180,1000);
 endShape(CLOSE);
-//frame decorations//added line details
-
-
-
-
-
-
+//frame decorations//added line details & cricles
+strokeWeight(10);
+stroke(255,181,100);
+line(1500,900,1440,800);
+line(1440,800,1500,700)
+strokeWeight(0)
+fill(240,134,134)//orange
+ellipse(270,1010,50,50)//little circles in frame
+ellipse(270,-10,50,50)
+ellipse(1230,-10,50,50)
+ellipse(1230,1010,50,50)
+fill(255,209,157)//light yellow/////////////////////////////////////////////////add more of these on side panels
+ellipse(1510,800,70,70)
 
 //center flower motif & innner decorations
-wider = map(drum,0,100,0,80);
-circle = map(vocal,0,100,10,100);
+wider = map(drum,0,100,0,80);//makes petals change shape
+circle = map(vocal,0,100,10,100);//makes circles not on petals change shape
 
+strokeWeight(10)
+fill(255,209,157)
 ellipse(middleX-200,middleY,petalWidth+wider,petalHeight);//center flower petals
 ellipse(middleX+200,middleY,petalWidth+wider,petalHeight);
 ellipse(middleX,middleY-200,petalHeight,petalWidth+wider);
 ellipse(middleX,middleY+200,petalHeight,petalWidth+wider);
 
-sunSize= map(drum,0,100,10,100);
+sunSize=map(drum,0,100,10,100);
 beachSize=map(bass,0,100,800,1000);
 petalSize=map(drum,0,100,10,200);
+
 fill(248,93,0); //orange
+strokeWeight(10);
+stroke(255,209,157)
 ellipse(centerX,centerY,sunSize);
+strokeWeight(0);
+
 if(sunSize>40){
 fill(255,209,157)//yellow
 rotate(45);
@@ -152,8 +150,6 @@ ellipse(640,-175,150,50);
 ellipse(1150,-200,150,50);
 rotate(315);
  }
-ellipse(centerX+315,centerY+275,circle);
-
 
 if(petalSize>60){
     ellipse(centerX+100,centerY,tinyCircle);//central most circles in petals
@@ -175,6 +171,9 @@ if(bass>48){
     ellipse(centerX,centerY-300,tinyCircle);
     ellipse(centerX,centerY+300,tinyCircle);
 }
+
+ellipse(centerX+475,centerY,circle);//circles sitting in negative space
+ellipse(centerX-475,centerY,circle);
 
 
 //moving it around////////////////////////////////////////////if have time
