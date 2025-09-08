@@ -16,16 +16,27 @@ let smallpetalW = 150//petal sizes
 let smalpetalH = 50//petal sizes
 
 
-
-
-// vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
 background(255,181,100);//dark yellow
 fill(248,93,0);//orange
+
+//pink flower petals behind main motif
+evenWider = map(drum,0,20,40,150);//makes shape extra wider
+quiteWide = map(drum,0,20,40,80);//makes shape slightly wider
+strokeWeight(0)
+stroke(255,181,100)//yellow
+fill(240,134,134)
+ellipse(middleX-200,middleY,petalWidth+evenWider,petalHeight+40);//behind center flower petals
+ellipse(middleX+200,middleY,petalWidth+evenWider,petalHeight+40);
+ellipse(middleX,middleY-200,petalHeight+40,petalWidth+quiteWide);
+ellipse(middleX,middleY+200,petalHeight+40,petalWidth+quiteWide);
 strokeWeight(10)
-stroke(255,181,100)
+
 
 //border (frame)
+fill(248,93,0);//orange
+strokeWeight(10)
+stroke(145,132,80)//green
 rect(0,0,100,1000);//left frame piece
 rect(1400,0,1000,1500)//right frame piece
 beginShape();//top frame piece
@@ -41,16 +52,7 @@ vertex(1400,900);
 vertex(1500,1000);
 endShape(CLOSE);
 
-//pink flower petals behind main motif
-evenWider = map(drum,0,20,40,150);
-quiteWide = map(drum,0,20,40,80);
-strokeWeight(0)
-fill(240,134,134)
-ellipse(middleX-200,middleY,petalWidth+evenWider,petalHeight+40);//behind center flower petals
-ellipse(middleX+200,middleY,petalWidth+evenWider,petalHeight+40);
-ellipse(middleX,middleY-200,petalHeight+40,petalWidth+quiteWide);
-ellipse(middleX,middleY+200,petalHeight+40,petalWidth+quiteWide);
-strokeWeight(10)
+
 
 
 //frame decorations//triangles
@@ -59,7 +61,7 @@ let pointBtm = map(bass,0,100,960,850);//makes point go up
 let pointLeft= map(bass,0,100,40,200);//makes point go right
 let pointRight = map(bass,0,100,1460,1300);//makes point go left
 
-
+stroke(145,132,80)//green
 fill(145,132,80);//top green triangle
 beginShape();
 vertex(650,0);
@@ -102,8 +104,10 @@ vertex(860,1000);
 vertex(910,pointBtm+50);
 vertex(960,1000);
 endShape(CLOSE);
+stroke(10);
+stroke(145,132,80)//green
 fill(255,209,157);//top left light yellow triangle
-strokeWeight(0);
+strokeWeight(10);
 beginShape();
 vertex(220,0);
 vertex(270,50);
@@ -124,6 +128,7 @@ vertex(1280,1000);
 vertex(1230,950);
 vertex(1180,1000);
 endShape(CLOSE);
+strokeWeight(10);
 beginShape();//left top yellow triangle
 vertex(0,300);
 vertex(0,400);
@@ -144,7 +149,7 @@ vertex(1500,600);
 vertex(pointRight+70,650);
 vertex(1500,700);
 endShape(CLOSE);
-
+stroke(255,181,100)//yellow
 
 //center flower motif & innner decorations
 let wider = map(drum,0,100,0,80);//makes petals change shape
@@ -159,9 +164,8 @@ ellipse(middleX,middleY-200,petalHeight,petalWidth+wider);
 ellipse(middleX,middleY+200,petalHeight,petalWidth+wider);
 
 
-let sunSize=map(drum,0,100,10,100);
-let beachSize=map(bass,0,100,800,1000);
-let petalSize=map(drum,0,100,10,200);
+let sunSize=map(drum,0,100,10,100);//middle circle chanegr
+let petalSize=map(drum,0,100,10,200);//big light yellow petals
 
 fill(248,93,0); //orange
 strokeWeight(10);
@@ -209,74 +213,5 @@ ellipse(900,-450,50,150);
 ellipse(640,-175,150,50);
 ellipse(1150,-200,150,50);
 rotate(315);
-
-
-//moving it around////////////////////////////////////////////if have time
-// strokeWeight(8)
-// ellipse(sunX,sunY,sunSize-20);
-// ellipse(sunX,sunY,sunSize-60); other
-// sunY = sunY+1
-// sunX = sunX+1
-// if(sunX>700){
-//  sunX=0
-// }
-// if(sunY>800){
-// sunY=200    
-// }
-
-//little top right flower
-// fill(240,134,134)//pink
-// ellipse(uprightX,uprightY,20,100)
-// ellipse(uprightX,uprightY,100,20)
-// fill(255,209,157)//light yellow
-// ellipse(uprightX,uprightY,20,20)
-
-
-// ellipse(upleftX,uprightY,20,20)//little top left flower
-// ellipse( upleftX,uprightY-80,20,80)
-// ellipse( upleftX-80,uprightY,80,20)
-// ellipse( upleftX,uprightY+80,20,80)
-// ellipse( upleftX+80,uprightY,80,20)
-
-// ellipse( upleftX-60,uprightY-60,15,15)
-// ellipse( upleftX+60,uprightY+60,15,15)
-// ellipse( upleftX-60,uprightY+60,15,15)
-// ellipse( upleftX+60,uprightY-60,15,15)
-
-//little btm left flower
-// fill(240,134,134)//pink
-// ellipse(btmleftX-35,btmleftY,80,40)
-// ellipse(btmleftX+35,btmleftY,80,40)
-// ellipse(btmleftX,btmleftY-35,40,80)
-// ellipse(btmleftX,btmleftY+35,40,80)
-// fill(255,209,157)//light yellow
-// ellipse( btmleftX,btmleftY, 20,20)
-// ellipse(btmleftX-40, btmleftY-40,15,15)
-// ellipse(btmleftX+40, btmleftY+40,15,15)
-// ellipse(btmleftX-40, btmleftY+40,15,15)
-// ellipse(btmleftX+40, btmleftY-40,15,15)
-
-// //btm right flower
-// ellipse(btmrightX,btmleftY,20,20)
-// ellipse(btmrightX-30,btmleftY,20,20)
-// ellipse(btmrightX,btmleftY-30,20,20)
-// ellipse(btmrightX+30,btmleftY,20,20)
-// ellipse(btmrightX,btmleftY+30,20,20)
-
-
-//////////////////////////////////put in later
-
-// //moving it around
-// strokeWeight(8)
-// ellipse(sunX,sunY,sunSize-20);
-// ellipse(sunX,sunY,sunSize-60);
-// sunY = sunY+1
-// sunX = sunX+1
-// if(sunX>700){
-//  sunX=0
-// }
-// if(sunY>800){
-// sunY=200    
-// }
 
 }
