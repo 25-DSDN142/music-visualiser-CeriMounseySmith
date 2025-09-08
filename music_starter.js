@@ -4,16 +4,18 @@
 let middleX = 750//location variables
 let middleY = 500//location variables
 let sunSize= 200;//sunSize is the middle orange circle
-let sunX = 350;
-let sunY = 350;
+let sunX = 350;//center circle 
+let sunY = 350;//center circle 
 let centerX=750;//center of canvas
 let centerY=500;//center of canvas
-let petalWidth = 300
-let petalHeight = 100
+let petalWidth = 300//petal sizes
+let petalHeight = 100//petal sizes
 let tinyCircle = 20//tiny green circle close to edge of petals
 let medCircle = 40//middle circle on petal
-let smallpetalW = 150
-let smalpetalH = 50
+let smallpetalW = 150//petal sizes
+let smalpetalH = 50//petal sizes
+
+
 
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
@@ -39,11 +41,24 @@ vertex(1400,900);
 vertex(1500,1000);
 endShape(CLOSE);
 
+//pink flower petals behind main motif
+evenWider = map(drum,0,20,40,150);
+quiteWide = map(drum,0,20,40,80);
+strokeWeight(0)
+fill(240,134,134)
+ellipse(middleX-200,middleY,petalWidth+evenWider,petalHeight+40);//behind center flower petals
+ellipse(middleX+200,middleY,petalWidth+evenWider,petalHeight+40);
+ellipse(middleX,middleY-200,petalHeight+40,petalWidth+quiteWide);
+ellipse(middleX,middleY+200,petalHeight+40,petalWidth+quiteWide);
+strokeWeight(10)
+
+
 //frame decorations//triangles
-pointTop = map(bass,0,100,40,150);
-pointBtm = map(bass,0,100,960,850);
-pointLeft= map(bass,0,100,40,200)
-pointRight=map(bass,0,100,1460,1300)
+let pointTop = map(bass,0,100,40,150);//makes point go down
+let pointBtm = map(bass,0,100,960,850);//makes point go up
+let pointLeft= map(bass,0,100,40,200);//makes point go right
+let pointRight = map(bass,0,100,1460,1300);//makes point go left
+
 
 fill(145,132,80);//top green triangle
 beginShape();
@@ -131,19 +146,10 @@ vertex(1500,700);
 endShape(CLOSE);
 
 
-//frame decorations//added line details & cricles//////////////
-strokeWeight(10);
-stroke(255,181,100);
-line(0,290,310,0)///change and fix
-line(310,60,330,0)////////////////////////////////////////////////////////////
-strokeWeight(0)
-fill(240,134,134)//orange
-fill(255,209,157)//light yellow
-
-
 //center flower motif & innner decorations
-wider = map(drum,0,100,0,80);//makes petals change shape
-circle = map(vocal,0,100,10,100);//makes circles not on petals change shape
+let wider = map(drum,0,100,0,80);//makes petals change shape
+let circle = map(vocal,0,100,10,100);//makes circles not on petals change shape
+
 
 strokeWeight(10)
 fill(255,209,157)
@@ -152,9 +158,10 @@ ellipse(middleX+200,middleY,petalWidth+wider,petalHeight);
 ellipse(middleX,middleY-200,petalHeight,petalWidth+wider);
 ellipse(middleX,middleY+200,petalHeight,petalWidth+wider);
 
-sunSize=map(drum,0,100,10,100);
-beachSize=map(bass,0,100,800,1000);
-petalSize=map(drum,0,100,10,200);
+
+let sunSize=map(drum,0,100,10,100);
+let beachSize=map(bass,0,100,800,1000);
+let petalSize=map(drum,0,100,10,200);
 
 fill(248,93,0); //orange
 strokeWeight(10);
@@ -193,15 +200,21 @@ if(bass>48){
     ellipse(centerX,centerY+300,tinyCircle);
 }
 
-ellipse(centerX+475,centerY,circle);//circles sitting in negative space
-ellipse(centerX-475,centerY,circle);
+ellipse(centerX+475,centerY,circle+30);//circles by bass controlled triangles
+ellipse(centerX-475,centerY,circle+30);
 
+rotate(45);
+ellipse(middleX+125,middleY-400,50,150);//smaller diagonal flower petals//part2
+ellipse(900,-450,50,150);
+ellipse(640,-175,150,50);
+ellipse(1150,-200,150,50);
+rotate(315);
 
 
 //moving it around////////////////////////////////////////////if have time
 // strokeWeight(8)
 // ellipse(sunX,sunY,sunSize-20);
-// ellipse(sunX,sunY,sunSize-60);
+// ellipse(sunX,sunY,sunSize-60); other
 // sunY = sunY+1
 // sunX = sunX+1
 // if(sunX>700){
@@ -211,7 +224,7 @@ ellipse(centerX-475,centerY,circle);
 // sunY=200    
 // }
 
-rotate(315);//little top right flower
+//little top right flower
 // fill(240,134,134)//pink
 // ellipse(uprightX,uprightY,20,100)
 // ellipse(uprightX,uprightY,100,20)
