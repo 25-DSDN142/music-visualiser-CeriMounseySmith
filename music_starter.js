@@ -12,6 +12,8 @@ let petalWidth = 300
 let petalHeight = 100
 let tinyCircle = 20//tiny green circle close to edge of petals
 let medCircle = 40//middle circle on petal
+let smallpetalW = 150
+let smalpetalH = 50
 
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
@@ -42,6 +44,7 @@ pointTop = map(bass,0,100,40,150);
 pointBtm = map(bass,0,100,960,850);
 pointLeft= map(bass,0,100,40,200)
 pointRight=map(bass,0,100,1460,1300)
+
 fill(145,132,80);//top green triangle
 beginShape();
 vertex(650,0);
@@ -55,33 +58,33 @@ vertex(850,1000);
 endShape(CLOSE);
 beginShape();//left green triangle
 vertex(0,400);
-vertex(pointLeft,500);
+vertex(pointLeft+50,500);
 vertex(0,600);
 endShape(CLOSE);
 beginShape();//right green triangle
-vertex(pointRight,500);
+vertex(pointRight-50,500);
 vertex(1500,400);
 vertex(1500,600);
 endShape(CLOSE);
 fill(240,134,134);//top left pink triangle
 beginShape();
 vertex(540,0);
-vertex(590,60);
+vertex(590,pointTop-50);
 vertex(640,0);
 endShape(CLOSE);
 beginShape();//top right pink triangle
 vertex(860,0);
-vertex(910,60);
+vertex(910,pointTop-50);
 vertex(960,0);
 endShape(CLOSE);
 beginShape();//bottom left pink triangle
 vertex(540,1000);
-vertex(590,940);
+vertex(590,pointBtm+50);
 vertex(640,1000);
 endShape(CLOSE);
 beginShape();//bottom right pink triangle
 vertex(860,1000);
-vertex(910,940);
+vertex(910,pointBtm+50);
 vertex(960,1000);
 endShape(CLOSE);
 fill(255,209,157);//top left light yellow triangle
@@ -106,19 +109,37 @@ vertex(1280,1000);
 vertex(1230,950);
 vertex(1180,1000);
 endShape(CLOSE);
-//frame decorations//added line details & cricles
+beginShape();//left top yellow triangle
+vertex(0,300);
+vertex(0,400);
+vertex(pointLeft-70,350);
+endShape(CLOSE);
+beginShape();//left bottom yellow triangle
+vertex(0,700);
+vertex(0,600);
+vertex(pointLeft-70,650);
+endShape(CLOSE);
+beginShape();//right top yellow triangle
+vertex(1500,300);
+vertex(pointRight+70,350);
+vertex(1500,400);
+endShape(CLOSE);
+beginShape();//right bottom yellow triangle
+vertex(1500,600);
+vertex(pointRight+70,650);
+vertex(1500,700);
+endShape(CLOSE);
+
+
+//frame decorations//added line details & cricles//////////////
 strokeWeight(10);
 stroke(255,181,100);
-line(1500,900,1440,800);
-line(1440,800,1500,700)
+line(0,290,310,0)///change and fix
+line(310,60,330,0)////////////////////////////////////////////////////////////
 strokeWeight(0)
 fill(240,134,134)//orange
-ellipse(270,1010,50,50)//little circles in frame
-ellipse(270,-10,50,50)
-ellipse(1230,-10,50,50)
-ellipse(1230,1010,50,50)
-fill(255,209,157)//light yellow/////////////////////////////////////////////////add more of these on side panels
-ellipse(1510,800,70,70)
+fill(255,209,157)//light yellow
+
 
 //center flower motif & innner decorations
 wider = map(drum,0,100,0,80);//makes petals change shape
@@ -174,6 +195,7 @@ if(bass>48){
 
 ellipse(centerX+475,centerY,circle);//circles sitting in negative space
 ellipse(centerX-475,centerY,circle);
+
 
 
 //moving it around////////////////////////////////////////////if have time
