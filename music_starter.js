@@ -155,14 +155,12 @@ stroke(255,181,100)//yellow
 let wider = map(drum,0,100,0,80);//makes petals change shape
 let circle = map(vocal,0,100,10,100);//makes circles not on petals change shape
 
-
 strokeWeight(10)
 fill(255,209,157)
 ellipse(middleX-200,middleY,petalWidth+wider,petalHeight);//center flower petals
 ellipse(middleX+200,middleY,petalWidth+wider,petalHeight);
 ellipse(middleX,middleY-200,petalHeight,petalWidth+wider);
 ellipse(middleX,middleY+200,petalHeight,petalWidth+wider);
-
 
 let sunSize=map(drum,0,100,10,100);//middle circle chanegr
 let petalSize=map(drum,0,100,10,200);//big light yellow petals
@@ -213,5 +211,4 @@ ellipse(900,-450,50,150);
 ellipse(640,-175,150,50);
 ellipse(1150,-200,150,50);
 rotate(315);
-
 }
